@@ -1,6 +1,6 @@
 {
 	"name": "calcite-casting-fork",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"title": "Casting With Calcite(Fork)",
 	"description": "Use alternate recipes with calcite to cast intermediate products and plates, including holmium, allowing input quality to transfer. When Molten Tungsten is installed, its tungsten plate casting recipe also requires calcite.",
 	"author": "lazydoge233 (fork), Harag (original)",
