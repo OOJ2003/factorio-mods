@@ -2,9 +2,10 @@
 	"name": "polygonal-quality-icons-2_1",
 	"version": "1.1.0",
 	"title": "Polygonal Quality Icons 2.1 Fork",
-	"author": "",
+	"author": "lazydoge233 (fork), SnaveSutit (original)",
+	"homepage": "https://github.com/SnaveSutit/polygonal-quality-icons",
 	"factorio_version": "2.1",
 	"dependencies": ["base >= 2.0", "quality >= 2.0"],
-	"description": "Replaces the default quality icons with larger, polygonal ones.",
+	"description": "A Factorio 2.1-compatible fork of Polygonal Quality Icons by SnaveSutit. Replaces the default quality icons with larger, polygonal ones.",
 	"quality_required": true
 }
