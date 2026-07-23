@@ -1,4 +1,4 @@
-local icon_path = "__polygonal-quality-icons__/graphics/icons/" ..
+local icon_path = "__polygonal-quality-icons-2_1__/graphics/icons/" ..
 	settings.startup["polygonal-quality-icons-icon-style"].value .. "/"
 
 data.raw["quality"]["normal"].icon = icon_path .. "quality-normal.png"

@@ -1,4 +1,4 @@
-local icon_path = "__polygonal-quality-icons__/graphics/icons/"
+local icon_path = "__polygonal-quality-icons-2_1__/graphics/icons/"
 
 local outline_styles = {
 	"black-outline",
