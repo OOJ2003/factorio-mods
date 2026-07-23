@@ -1,4 +1,21 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.5
+Date: 2026-07-24
+  Bugfixes:
+    - Fixed generated recipes showing an unknown locale key when the source recipe defines a
+      custom localized name.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.4
+Date: 2026-07-24
+  Bugfixes:
+    - Restored calcite casting recipe generation for Factorio 2.1 recipe categories.
+    - Fixed the holmium casting icon path for this fork's mod name.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.3
+Date: 2026-07-24
+  Bugfixes:
+    - Fixed Molten Tungsten compatibility preventing the calcite casting recipe from being created.
+---------------------------------------------------------------------------------------------------
 Version: 1.0.2
 Date: 2026-07-24
   Features:

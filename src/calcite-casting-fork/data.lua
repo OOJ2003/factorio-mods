@@ -1,30 +1,6 @@
-if mods["molten-tungsten"] then
-	local tungsten_casting = data.raw.recipe["casting-tungsten"]
-
-	if tungsten_casting and tungsten_casting.ingredients then
-		local has_calcite = false
-
-		for _, ingredient in ipairs(tungsten_casting.ingredients) do
-			if ingredient.type == "item" and ingredient.name == "calcite" then
-				ingredient.amount = ingredient.amount + 1
-				has_calcite = true
-				break
-			end
-		end
-
-		if not has_calcite then
-			table.insert(tungsten_casting.ingredients, {
-				type = "item",
-				name = "calcite",
-				amount = 1,
-			})
-		end
-	end
-end
-
 local custom_icons = {
 	["holmium-plate-calcite"] = {
-		{ icon = "__calcite-casting__/graphics/icons/casting-holmium.png" }
+		{ icon = "__calcite-casting-fork__/graphics/icons/casting-holmium.png" }
 	},
 }
 
@@ -76,10 +52,26 @@ end
 
 local recipes = {}
 
+---@param recipe data.RecipePrototype
+---@return boolean
+local function uses_casting_category(recipe)
+	if recipe.category == "metallurgy" or recipe.category == "crafting-with-fluid-or-metallurgy" then
+		return true
+	end
+
+	for _, category in ipairs(recipe.categories or {}) do
+		if category == "metallurgy" or category == "crafting-with-fluid-or-metallurgy" then
+			return true
+		end
+	end
+
+	return false
+end
+
 for _, recipe in pairs(data.raw["recipe"]) do
 	local subgroup = recipe.subgroup and data.raw["item-subgroup"][recipe.subgroup]
 
-	if (recipe.category == "metallurgy" or recipe.category == "crafting-with-fluid-or-metallurgy")
+	if uses_casting_category(recipe)
 		and (subgroup and subgroup.group == "intermediate-products")
 		and recipe.ingredients and #recipe.ingredients == 1 and recipe.ingredients[1].type == "fluid"
 		and recipe.results and #recipe.results == 1 and recipe.results[1].type == "item"
@@ -103,8 +95,16 @@ for _, recipe in pairs(data.raw["recipe"]) do
 
 		new_recipe.name = recipe.name .. "-calcite"
 		new_recipe.energy_required = math.floor(recipe.energy_required * multiplier * 9) / 10 -- 10% speed boost
-		new_recipe.localised_name = { "recipe-name.calcite-casting-suffix", custom_localized_name[new_recipe.name] or { "recipe-name." .. recipe.name } }
-		new_recipe.category = "metallurgy"
+		new_recipe.localised_name = {
+			"recipe-name.calcite-casting-suffix",
+			custom_localized_name[new_recipe.name] or recipe.localised_name or { "recipe-name." .. recipe.name },
+		}
+		if new_recipe.categories then
+			new_recipe.categories = { "metallurgy" }
+			new_recipe.category = nil
+		else
+			new_recipe.category = "metallurgy"
+		end
 		new_recipe.icons = generate_icons(new_recipe)
 		new_recipe.icon = nil
 		new_recipe.hide_from_signal_gui = false
@@ -112,6 +112,30 @@ for _, recipe in pairs(data.raw["recipe"]) do
 		---@diagnostic disable-next-line: assign-type-mismatch
 		data:extend({ new_recipe })
 		recipes[recipe.name] = new_recipe.name
+	end
+end
+
+if mods["molten-tungsten"] then
+	local tungsten_casting = data.raw.recipe["casting-tungsten"]
+
+	if tungsten_casting and tungsten_casting.ingredients then
+		local has_calcite = false
+
+		for _, ingredient in ipairs(tungsten_casting.ingredients) do
+			if ingredient.type == "item" and ingredient.name == "calcite" then
+				ingredient.amount = ingredient.amount + 1
+				has_calcite = true
+				break
+			end
+		end
+
+		if not has_calcite then
+			table.insert(tungsten_casting.ingredients, {
+				type = "item",
+				name = "calcite",
+				amount = 1,
+			})
+		end
 	end
 end
 
