@@ -1,6 +1,6 @@
 {
-  "name": "foundry-recycling",
-  "version": "1.0.0",
+  "name": "foundry-recycling-fork",
+  "version": "1.0.1",
   "title": "Foundry Recycling",
   "author": "lazydoge233 (fork), dkmk100 (original)",
   "homepage": "https://github.com/OOJ2003/factorio-mods",
@@ -10,5 +10,5 @@
     "space-age",
     "recycler"
   ],
-  "description": "A fork of Foundry Recycling by dkmk100. Adds the ability to recycle some products in a foundry. Requires Space Age."
+  "description": "This mod adds the ability to recycle some products in a foundry. Requires space age."
 }
