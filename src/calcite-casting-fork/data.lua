@@ -1,3 +1,27 @@
+if mods["molten-tungsten"] then
+	local tungsten_casting = data.raw.recipe["casting-tungsten"]
+
+	if tungsten_casting and tungsten_casting.ingredients then
+		local has_calcite = false
+
+		for _, ingredient in ipairs(tungsten_casting.ingredients) do
+			if ingredient.type == "item" and ingredient.name == "calcite" then
+				ingredient.amount = ingredient.amount + 1
+				has_calcite = true
+				break
+			end
+		end
+
+		if not has_calcite then
+			table.insert(tungsten_casting.ingredients, {
+				type = "item",
+				name = "calcite",
+				amount = 1,
+			})
+		end
+	end
+end
+
 local custom_icons = {
 	["holmium-plate-calcite"] = {
 		{ icon = "__calcite-casting__/graphics/icons/casting-holmium.png" }

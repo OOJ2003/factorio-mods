@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.1
+Date: 2026-07-24
+  Features:
+    - Added optional compatibility with Molten Tungsten. Its tungsten plate casting recipe now
+      requires one additional calcite.
+---------------------------------------------------------------------------------------------------
 Version: 1.0.0
 Date: 2025-05-03
   Features:
