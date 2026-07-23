@@ -1,0 +1,6 @@
+---------------------------------------------------------------------------------------------------
+Version: 1.0.0
+Date: 2025-05-03
+  Features:
+    - Use calcite in alternate recipes to cast intermediate products and plates, including holmium.
+      Most importantly these recipes allow input quality to transfer. They also give a 10% speed boost.

@@ -1,0 +1,13 @@
+{
+  "name": "foundry-recycling",
+  "version": "1.0.0",
+  "title": "Foundry Recycling",
+  "author": "dkmk100",
+  "factorio_version": "2.1",
+  "dependencies": [
+    "base >= 2.0",
+    "space-age",
+    "recycler"
+  ],
+  "description": "This mod adds the ability to recycle some metal products in a foundry. Requires space age."
+}

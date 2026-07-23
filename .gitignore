@@ -1,0 +1,18 @@
+# Generated Factorio mod packages
+/dist/*
+!/dist/.gitkeep
+
+# Temporary build files
+/temp/*
+!/temp/.gitkeep
+
+# Windows alternate data stream artifacts extracted as files
+*Zone.Identifier
+*:Zone.Identifier
+
+# Editor and OS metadata
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
