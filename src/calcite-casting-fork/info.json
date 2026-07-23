@@ -4,7 +4,7 @@
 	"title": "Casting With Calcite(Fork)",
 	"description": "Use alternate recipes with calcite to cast intermediate products and plates, including holmium, allowing input quality to transfer. When Molten Tungsten is installed, adds new tungsten plate casting recipe also requires calcite.",
 	"author": "lazydoge233 (fork), Harag (original)",
-	"homepage": "https://github.com/OOJ2003/factorio-mods",
+	"homepage": "https://mods.factorio.com/mod/calcite-casting-fork",
 	"factorio_version": "2.1",
 	"dependencies": [
 		"base >= 2.0.0",

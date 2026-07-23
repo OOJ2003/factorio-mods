@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "title": "Foundry Recycling",
   "author": "lazydoge233 (fork), dkmk100 (original)",
-  "homepage": "https://github.com/OOJ2003/factorio-mods",
+  "homepage": "https://mods.factorio.com/mod/foundry-recycling-fork",
   "factorio_version": "2.1",
   "dependencies": [
     "base >= 2.0",

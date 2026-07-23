@@ -3,7 +3,7 @@
 	"version": "1.1.2",
 	"title": "Polygonal Quality Icons 2.1 Fork",
 	"author": "lazydoge233 (fork), SnaveSutit (original)",
-	"homepage": "https://github.com/OOJ2003/factorio-mods",
+	"homepage": "https://mods.factorio.com/mod/polygonal-quality-icons-2_1",
 	"factorio_version": "2.1",
 	"dependencies": ["base >= 2.0", "quality >= 2.0"],
 	"description": "Polygonal Quality Icons 2.1 Fork(https://mods.factorio.com/mod/polygonal-quality-icons) \nWill be deleted after the original one updated.",
