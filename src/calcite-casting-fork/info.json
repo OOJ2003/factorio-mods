@@ -1,10 +1,10 @@
 {
 	"name": "calcite-casting-fork",
 	"version": "1.0.0",
-	"title": "Casting With Calcite",
+	"title": "Casting With Calcite(Fork)",
 	"description": "A fork of Casting With Calcite by Harag. Use alternate recipes with calcite to cast intermediate products and plates, including holmium, allowing input quality to transfer.",
 	"author": "lazydoge233 (fork), Harag (original)",
-	"homepage": "https://github.com/harag-on-steam/factorio-mods",
+	"homepage": "https://github.com/OOJ2003/factorio-mods",
 	"factorio_version": "2.0",
 	"dependencies": [
 		"base >= 2.0.0",
