@@ -6,6 +6,9 @@
 /temp/*
 !/temp/.gitkeep
 
+# Local reference mods and materials
+/reference/
+
 # Windows alternate data stream artifacts extracted as files
 *Zone.Identifier
 *:Zone.Identifier
