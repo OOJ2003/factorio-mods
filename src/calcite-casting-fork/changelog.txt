@@ -1,4 +1,45 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.12
+Date: 2026-08-15
+  Graphics:
+    - Restored the calcite badge on the bulk plastic-bar casting recipe to its original size and
+      moved it above the plastic-bar layer so it is no longer obscured.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.11
+Date: 2026-08-15
+  Graphics:
+    - Further increased the size of the calcite badge on the bulk plastic-bar casting recipe.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.10
+Date: 2026-08-15
+  Graphics:
+    - Increased the size of the calcite badge on the bulk plastic-bar casting recipe.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.9
+Date: 2026-08-15
+  Features:
+    - Added a bulk calcite-casting variant for Molten Tungsten's tungsten carbide casting recipe.
+      It uses 50 times the original ingredients plus 1 calcite and produces 50 times the output.
+  Graphics:
+    - Increased the apparent size of the calcite badge on the bulk plastic-bar casting recipe by
+      drawing it with the same base-layer logic as the bulk tungsten plate recipe.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.8
+Date: 2026-08-15
+  Bugfixes:
+    - Stopped adding calcite to Molten Tungsten's original tungsten plate casting recipe. The
+      separate bulk calcite-casting variant remains available.
+  Graphics:
+    - Moved the calcite badge on the bulk plastic-bar casting recipe to the bottom-right corner so
+      it no longer overlaps the molten-plastic badge.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.7
+Date: 2026-08-15
+  Features:
+    - Added optional compatibility with Molten Plastic 1.1.4. Its plastic-bar moulding recipe now
+      gets a bulk calcite-casting variant using 1 calcite and 500 molten plastic to produce 50
+      plastic bars.
+---------------------------------------------------------------------------------------------------
 Version: 1.0.6
 Date: 2026-07-24
   Bugfixes:

@@ -44,8 +44,14 @@ local function generate_icons(recipe)
 		draw_background = true,
 	}
 
-	table.insert(icons, 1, calcite_backdrop)
-	icons[2].draw_background = true
+	if recipe.name == "molten-plastic-to-plastic-bar-calcite" then
+		calcite_backdrop.shift = { 10, 10 }
+		table.insert(icons, calcite_backdrop)
+		icons[1].draw_background = true
+	else
+		table.insert(icons, 1, calcite_backdrop)
+		icons[2].draw_background = true
+	end
 
 	return icons
 end
@@ -55,6 +61,10 @@ local recipes = {}
 ---@param recipe data.RecipePrototype
 ---@return boolean
 local function uses_casting_category(recipe)
+	if mods["molten_plastic"] and recipe.name == "molten-plastic-to-plastic-bar" then
+		return true
+	end
+
 	if recipe.category == "metallurgy" or recipe.category == "crafting-with-fluid-or-metallurgy" then
 		return true
 	end
@@ -68,18 +78,31 @@ local function uses_casting_category(recipe)
 	return false
 end
 
+---@param recipe data.RecipePrototype
+---@return number?
+local function get_recipe_multiplier(recipe)
+	if mods["molten-tungsten"] and recipe.name == "casting-tungsten-carbide" then
+		return 50
+	end
+
+	if recipe.ingredients and #recipe.ingredients == 1 and recipe.ingredients[1].type == "fluid" then
+		return math.floor(500 / recipe.ingredients[1].amount)
+	end
+
+	return nil
+end
+
 for _, recipe in pairs(data.raw["recipe"]) do
 	local subgroup = recipe.subgroup and data.raw["item-subgroup"][recipe.subgroup]
+	local multiplier = get_recipe_multiplier(recipe)
 
 	if uses_casting_category(recipe)
 		and (subgroup and subgroup.group == "intermediate-products")
-		and recipe.ingredients and #recipe.ingredients == 1 and recipe.ingredients[1].type == "fluid"
+		and multiplier
 		and recipe.results and #recipe.results == 1 and recipe.results[1].type == "item"
 	then
 		local new_recipe = table.deepcopy(recipe)
-		local ingredient = new_recipe.ingredients[1]
 		local result = new_recipe.results[1]
-		local multiplier = math.floor(500 / ingredient.amount)
 
 		if result.amount_max then
 			result.amount_min = result.amount_min * multiplier
@@ -88,8 +111,12 @@ for _, recipe in pairs(data.raw["recipe"]) do
 			result.amount = result.amount * multiplier
 		end
 
-		ingredient.amount = ingredient.amount * multiplier
-		ingredient.fluidbox_multiplier = 2
+		for _, ingredient in ipairs(new_recipe.ingredients) do
+			ingredient.amount = ingredient.amount * multiplier
+			if ingredient.type == "fluid" then
+				ingredient.fluidbox_multiplier = 2
+			end
+		end
 
 		table.insert(new_recipe.ingredients, 1, { type = "item", name = "calcite", amount = 1 })
 
@@ -112,30 +139,6 @@ for _, recipe in pairs(data.raw["recipe"]) do
 		---@diagnostic disable-next-line: assign-type-mismatch
 		data:extend({ new_recipe })
 		recipes[recipe.name] = new_recipe.name
-	end
-end
-
-if mods["molten-tungsten"] then
-	local tungsten_casting = data.raw.recipe["casting-tungsten"]
-
-	if tungsten_casting and tungsten_casting.ingredients then
-		local has_calcite = false
-
-		for _, ingredient in ipairs(tungsten_casting.ingredients) do
-			if ingredient.type == "item" and ingredient.name == "calcite" then
-				ingredient.amount = ingredient.amount + 1
-				has_calcite = true
-				break
-			end
-		end
-
-		if not has_calcite then
-			table.insert(tungsten_casting.ingredients, {
-				type = "item",
-				name = "calcite",
-				amount = 1,
-			})
-		end
 	end
 end
 
