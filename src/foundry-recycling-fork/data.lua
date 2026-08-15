@@ -80,22 +80,22 @@ for k, v in ipairs(foundry_recyclables) do
     icons = {
       {
         icon = "__recycler__/graphics/icons/recycling.png",
-        scale = 1
+        scale = 0.5
       },
       {
         --TODO: is it possible to check the item's icon?
         icon = "__base__/graphics/icons/" .. v.item .. ".png",
-        scale = 0.75,
-        shift = { -8, -8 }
+        scale = 0.375,
+        shift = { -4, -4 }
       },
       {
         icon = "__" .. v.root .. "__/graphics/icons/fluid/" .. v.result .. ".png",
-        scale = 0.75,
-        shift = { 8, 8 }
+        scale = 0.375,
+        shift = { 4, 4 }
       },
       {
         icon = "__recycler__/graphics/icons/recycling-top.png",
-        scale = 1,
+        scale = 0.5,
       },
     }
   }
@@ -124,21 +124,21 @@ data:extend({
     icons = {
       {
         icon = "__recycler__/graphics/icons/recycling.png",
-        scale = 1
+        scale = 0.5
       },
       {
         icon = "__base__/graphics/icons/electronic-circuit.png",
-        scale = 0.75,
-        shift = { -8, -8 }
+        scale = 0.375,
+        shift = { -4, -4 }
       },
       {
         icon = "__space-age__/graphics/icons/fluid/molten-copper.png",
-        scale = 0.75,
-        shift = { 8, 8 }
+        scale = 0.375,
+        shift = { 4, 4 }
       },
       {
         icon = "__recycler__/graphics/icons/recycling-top.png",
-        scale = 1,
+        scale = 0.5,
       },
     }
   },
@@ -161,21 +161,21 @@ data:extend({
     icons = {
       {
         icon = "__recycler__/graphics/icons/recycling.png",
-        scale = 1
+        scale = 0.5
       },
       {
         icon = "__base__/graphics/icons/advanced-circuit.png",
-        scale = 0.75,
-        shift = { -8, -8 }
+        scale = 0.375,
+        shift = { -4, -4 }
       },
       {
         icon = "__space-age__/graphics/icons/fluid/molten-copper.png",
-        scale = 0.75,
-        shift = { 8, 8 }
+        scale = 0.375,
+        shift = { 4, 4 }
       },
       {
         icon = "__recycler__/graphics/icons/recycling-top.png",
-        scale = 1,
+        scale = 0.5,
       },
     }
   },
@@ -198,21 +198,21 @@ data:extend({
     icons = {
       {
         icon = "__recycler__/graphics/icons/recycling.png",
-        scale = 1
+        scale = 0.5
       },
       {
         icon = "__base__/graphics/icons/battery.png",
-        scale = 0.75,
-        shift = { -8, -8 }
+        scale = 0.375,
+        shift = { -4, -4 }
       },
       {
         icon = "__base__/graphics/icons/fluid/sulfuric-acid.png",
-        scale = 0.75,
-        shift = { 8, 8 }
+        scale = 0.375,
+        shift = { 4, 4 }
       },
       {
         icon = "__recycler__/graphics/icons/recycling-top.png",
-        scale = 1,
+        scale = 0.5,
       },
     }
   },
@@ -235,21 +235,21 @@ data:extend({
     icons = {
       {
         icon = "__recycler__/graphics/icons/recycling.png",
-        scale = 1,
+        scale = 0.5,
       },
       {
         icon = "__base__/graphics/icons/electric-engine-unit.png",
-        scale = 0.75,
-        shift = { -8, -8 }
+        scale = 0.375,
+        shift = { -4, -4 }
       },
       {
         icon = "__space-age__/graphics/icons/fluid/molten-copper.png",
-        scale = 0.75,
-        shift = { 8, 8 }
+        scale = 0.375,
+        shift = { 4, 4 }
       },
       {
         icon = "__recycler__/graphics/icons/recycling-top.png",
-        scale = 1,
+        scale = 0.5,
       },
     }
   },
@@ -272,21 +272,21 @@ data:extend({
     icons = {
       {
         icon = "__recycler__/graphics/icons/recycling.png",
-        scale = 1
+        scale = 0.5
       },
       {
         icon = "__base__/graphics/icons/processing-unit.png",
-        scale = 0.75,
-        shift = { -8, -8 }
+        scale = 0.375,
+        shift = { -4, -4 }
       },
       {
         icon = "__space-age__/graphics/icons/fluid/molten-copper.png",
-        scale = 0.75,
-        shift = { 8, 8 }
+        scale = 0.375,
+        shift = { 4, 4 }
       },
       {
         icon = "__recycler__/graphics/icons/recycling-top.png",
-        scale = 1,
+        scale = 0.5,
       },
     }
   },
@@ -309,21 +309,21 @@ data:extend({
     icons = {
       {
         icon = "__recycler__/graphics/icons/recycling.png",
-        scale = 1
+        scale = 0.5
       },
       {
         icon = "__base__/graphics/icons/low-density-structure.png",
-        scale = 0.75,
-        shift = { -8, -8 }
+        scale = 0.375,
+        shift = { -4, -4 }
       },
       {
         icon = "__space-age__/graphics/icons/fluid/molten-copper.png",
-        scale = 0.75,
-        shift = { 8, 8 }
+        scale = 0.375,
+        shift = { 4, 4 }
       },
       {
         icon = "__recycler__/graphics/icons/recycling-top.png",
-        scale = 1,
+        scale = 0.5,
       },
     }
   },
