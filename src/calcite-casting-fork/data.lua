@@ -8,6 +8,61 @@ local custom_localized_name = {
 	["holmium-plate-calcite"] = { "item-name.holmium-plate" }
 }
 
+local calcite_ice_recipe_name = "calcite-ice-production"
+
+data:extend({
+	{
+		type = "recipe",
+		name = calcite_ice_recipe_name,
+		categories = { "cryogenics" },
+		subgroup = "aquilo-processes",
+		order = "b[fluoroketone]-c[calcite-ice-production]",
+		enabled = false,
+		auto_recycle = false,
+		energy_required = 45,
+		ingredients = {
+			{ type = "item", name = "calcite", amount = 1 },
+			{ type = "fluid", name = "water", amount = 1000 },
+			{ type = "fluid", name = "fluoroketone-cold", amount = 500, ignored_by_stats = 500 },
+		},
+		results = {
+			{ type = "item", name = "ice", amount = 50 },
+			{
+				type = "fluid",
+				name = "fluoroketone-hot",
+				amount = 500,
+				temperature = 180,
+				ignored_by_stats = 500,
+			},
+		},
+		main_product = "ice",
+		allow_productivity = false,
+		icons = {
+			{
+				icon = "__space-age__/graphics/icons/ice.png",
+				icon_size = 64,
+				draw_background = true,
+			},
+			{
+				icon = "__space-age__/graphics/icons/calcite.png",
+				icon_size = 64,
+				scale = 0.25,
+				shift = { 10, 10 },
+				floating = true,
+				draw_background = true,
+			},
+		},
+	},
+})
+
+local cryogenic_plant_technology = data.raw.technology["cryogenic-plant"]
+if cryogenic_plant_technology and cryogenic_plant_technology.effects then
+	table.insert(cryogenic_plant_technology.effects, {
+		type = "unlock-recipe",
+		recipe = calcite_ice_recipe_name,
+	})
+end
+
 ---@param recipe data.RecipePrototype
 local function generate_icons(recipe)
 	local icons = custom_icons[recipe.name]
@@ -92,8 +147,24 @@ local function get_recipe_multiplier(recipe)
 	return nil
 end
 
+---@param recipe data.RecipePrototype
+---@return data.ItemSubGroup?
+local function get_recipe_subgroup(recipe)
+	local subgroup_name = recipe.subgroup
+
+	if not subgroup_name
+		and recipe.results and #recipe.results == 1
+		and recipe.results[1].type == "item"
+	then
+		local result_item = data.raw.item[recipe.results[1].name]
+		subgroup_name = result_item and result_item.subgroup
+	end
+
+	return subgroup_name and data.raw["item-subgroup"][subgroup_name]
+end
+
 for _, recipe in pairs(data.raw["recipe"]) do
-	local subgroup = recipe.subgroup and data.raw["item-subgroup"][recipe.subgroup]
+	local subgroup = get_recipe_subgroup(recipe)
 	local multiplier = get_recipe_multiplier(recipe)
 
 	if uses_casting_category(recipe)
